@@ -1,0 +1,21 @@
+[
+  {
+    "name": "v1.0.3 (latest)",
+    "version": "v1.0.3",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/latest/"
+  },
+  {
+    "version": "v1.0.2",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/v1.0.2"
+  },
+  {
+    "name": "v1.0.0",
+    "version": "v1.0.0",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/v1.0.0/"
+  },
+  {
+    "name": "v1.0.1",
+    "version": "v1.0.1",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/v1.0.0"
+  }
+]
