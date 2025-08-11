@@ -27,11 +27,17 @@ jobs:
             ~/.movement/*
           key: cached-test-data-${{ runner.os }}
           restore-keys: cached-test-data
-      - uses: neuroinformatics-unit/actions/build_sphinx_docs@main
+       # needs to have sphinx.ext.githubpages in conf.py extensions list
+      - name: Building documentation
+        shell: bash
+        run: |
+            sphinx-build docs/source docs/build -b html -W --keep-going
+
+      - name: Upload the content for deployment
+        uses: actions/upload-artifact@v4
         with:
-          python-version: 3.12
-          use-make: true
-          fetch-tags: true
+          name: docs-${{ github.sha }}
+          path: ./docs/build/
 
   deploy_sphinx_docs:
     name: Deploy Sphinx Docs
