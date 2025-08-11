@@ -100,7 +100,7 @@ jobs:
               UPDATED_CURRENT_LATEST_ENTRY=$(jq --arg url "${BASE_URL}/${CURRENT_LATEST_VERSION}" '.[0] | .url = $url | del(.name)' <<< "$SWITCHER_CONTENT")
               NEW_ENTRY=$(jq -n --arg version "${version}" --arg url "$NEW_URL" --arg name "$version (latest)" \
                 '{name: $name, version: $version, url: $url}')
-              UPDATED_SWITCHER_CONTENT=$(jq --argjson new_entry "$NEW_ENTRY" --argjson updated_current_latest "$UPDATED_CURRENT_LATEST_ENTRY" '[$first_entry, $new_entry, $updated_current_latest] + .[1:]' <<< "$SWITCHER_CONTENT")
+              UPDATED_SWITCHER_CONTENT=$(jq --argjson new_entry "$NEW_ENTRY" --argjson updated_current_latest "$UPDATED_CURRENT_LATEST_ENTRY" '[$new_entry, $updated_current_latest] + .[1:]' <<< "$SWITCHER_CONTENT")
             else
               # File does not exist, initialize with current version as latest
               BASE_URL="https://animeshsasan.github.io/sphinx-deployment-test"
