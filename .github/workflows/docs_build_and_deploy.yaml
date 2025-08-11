@@ -30,7 +30,6 @@ jobs:
       - uses: neuroinformatics-unit/actions/build_sphinx_docs@main
         with:
           python-version: 3.12
-          use-make: true
           fetch-tags: true
 
   deploy_sphinx_docs:
