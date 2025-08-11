@@ -122,6 +122,10 @@ html_theme_options = {
             "type": "fontawesome",
         }
    ],
+   "switcher": {
+        "json_url": "https://animeshsasan.github.io/sphinx-deployment-test/latest/_static/switcher.json",
+        "version_match": release,
+    },
    "logo": {
         "text": f"Sphinx-deployment-test v{release}",
         "image_light": "logo_light.png",
