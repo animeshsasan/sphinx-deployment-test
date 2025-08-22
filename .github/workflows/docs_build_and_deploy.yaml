@@ -71,6 +71,7 @@ jobs:
         # Make the new commit message. Needs to happen before cd into deploy
         # to get the right commit hash.
         message="Deploy $version from $(git rev-parse --short HEAD)"
+        cd deploy
         # Need to have this file so that Github doesn't try to run Jekyll
         touch .nojekyll
         # Delete all the files and replace with our new  set
