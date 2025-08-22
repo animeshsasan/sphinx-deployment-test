@@ -56,6 +56,15 @@ jobs:
         name: docs-build
         path: ./docs/build
 
+    - name: Checkout the gh-pages branch in a separate folder
+      uses: actions/checkout@v4
+      with:
+        ref: gh-pages
+        # Checkout to this folder instead of the current one
+        path: deploy
+        # Download the entire history
+        fetch-depth: 0
+
     - name: Push the built HTML to gh-pages
       run: |
         # Detect if this is a release or from the main branch
