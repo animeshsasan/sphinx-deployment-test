@@ -96,7 +96,7 @@ jobs:
           if curl --output /dev/null --silent --head --fail "$SWITCHER_URL"; then
             # File exists, fetch and update
             SWITCHER_CONTENT=$(curl "$SWITCHER_URL")
-            BASE_URL="$(jq -r '.[0].url|split("/")[0:-1]|join("/")' <<< $SWITCHER_CONTENT)"
+            BASE_URL="$(jq -r '.[0].url|split("/")[0:-2]|join("/")' <<< $SWITCHER_CONTENT)"
             NEW_URL="${BASE_URL}/latest/"
             CURRENT_LATEST_VERSION=$(echo $(jq '.[0].version' <<< "${SWITCHER_CONTENT}") | tr -d '"')
             UPDATED_CURRENT_LATEST_ENTRY=$(jq --arg url "${BASE_URL}/${CURRENT_LATEST_VERSION}" '.[0] | .url = $url | del(.name)' <<< "$SWITCHER_CONTENT")
