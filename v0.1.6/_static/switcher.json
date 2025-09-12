@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Development",
+    "version": "dev",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/dev"
+  },
+  {
+    "name": "v0.1.6 (latest)",
+    "version": "v0.1.6",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/latest"
+  },
+  {
+    "version": "dev",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/v0.1.5"
+  }
+]
