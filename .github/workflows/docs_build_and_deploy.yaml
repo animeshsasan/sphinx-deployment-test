@@ -134,19 +134,12 @@ jobs:
             # Combine both
             UPDATED_SWITCHER_CONTENT=$(jq -n --argjson latest "$LATEST_ENTRY" --argjson dev "$DEV_ENTRY" \
               '[$dev, $latest]')
-          else
-            # Create the "dev" entry
-            DEV_ENTRY=$(jq -n --arg version "dev" --arg url "${BASE_URL}/dev" --arg name "Development" \
-              '{name: $name, version: $version, url: $url}')
             
-            # Combine both
-            UPDATED_SWITCHER_CONTENT=$(jq -n --argjson dev "$DEV_ENTRY" \
-              '[$dev]')
+            # Add the initial switcher file
+            SWITCHER_FILE="${version}/_static/switcher.json"
+            echo "$UPDATED_SWITCHER_CONTENT" > "$SWITCHER_FILE"
+            echo "${version}/_static/switcher.json has been updated successfully."
           fi
-          
-          SWITCHER_FILE="${version}/_static/switcher.json"
-          echo "$UPDATED_SWITCHER_CONTENT" > "$SWITCHER_FILE"
-          echo "${version}/_static/switcher.json has been updated successfully."
         fi
         
         # If this is a new release, update the link from /latest to it
