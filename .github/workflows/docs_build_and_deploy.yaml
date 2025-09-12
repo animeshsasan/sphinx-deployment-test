@@ -82,6 +82,12 @@ jobs:
         cd deploy
         # Need to have this file so that Github doesn't try to run Jekyll
         touch .nojekyll
+
+        #Add redirection from root url to latest
+        cat > index.html <<'EOF'
+        <meta http-equiv="Refresh" content="0;url=latest/index.html"/>
+        EOF
+
         # Delete all the files and replace with our new  set
         echo -e "\nRemoving old files from previous builds of ${version}:"
         rm -rvf ${version}
