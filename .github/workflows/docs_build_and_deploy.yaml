@@ -91,9 +91,10 @@ jobs:
         cp -Rvf $BUILD_DIR ${version}/
 
         SWITCHER_URL="https://animeshsasan.github.io/sphinx-deployment-test/latest/_static/switcher.json"
-        echo -e "\nUpdating switcher.json at ${SWITCHER_URL} for version ${version}."
+        
         if curl --output /dev/null --silent --head --fail "$SWITCHER_URL"; then
           if [[ "${version}" != "dev" ]]; then
+            echo -e "\nUpdating switcher.json at ${SWITCHER_URL} for version ${version}."
             # File exists, fetch and update
             SWITCHER_CONTENT=$(curl "$SWITCHER_URL")
             BASE_URL="$(jq -r '.[1].url|split("/")[0:-1]|join("/")' <<< $SWITCHER_CONTENT)"
@@ -103,7 +104,7 @@ jobs:
             DEV_ENTRY=$(jq '.[0]' <<< "${SWITCHER_CONTENT}")
 
             CURRENT_LATEST_VERSION=$(echo $(jq '.[1].version' <<< "${SWITCHER_CONTENT}") | tr -d '"')
-            UPDATED_CURRENT_LATEST_ENTRY=$(jq --arg url "${BASE_URL}/${CURRENT_LATEST_VERSION}" '.[0] | .url = $url | del(.name)' <<< "$SWITCHER_CONTENT")
+            UPDATED_CURRENT_LATEST_ENTRY=$(jq --arg url "${BASE_URL}/${CURRENT_LATEST_VERSION}" '.[1] | .url = $url | del(.name)' <<< "$SWITCHER_CONTENT")
             
             # Create the new version entry with the "latest" tag
             NEW_ENTRY=$(jq -n --arg version "${version}" --arg url "$NEW_URL" --arg name "$version (latest)" \
