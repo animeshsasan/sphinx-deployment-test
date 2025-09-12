@@ -111,6 +111,10 @@ jobs:
 
             # Combine the entries in the desired order
             UPDATED_SWITCHER_CONTENT=$(jq --argjson dev_entry "$DEV_ENTRY" --argjson new_entry "$NEW_ENTRY" --argjson updated_current_latest "$UPDATED_CURRENT_LATEST_ENTRY" '[$dev_entry, $new_entry, $updated_current_latest] + .[2:]' <<< "$SWITCHER_CONTENT")
+
+            SWITCHER_FILE="${version}/_static/switcher.json"
+            echo "$UPDATED_SWITCHER_CONTENT" > "$SWITCHER_FILE"
+            echo "${version}/_static/switcher.json has been updated successfully."
           fi
         else
           # File does not exist, initialize with current version/dev as latest
@@ -139,7 +143,6 @@ jobs:
             UPDATED_SWITCHER_CONTENT=$(jq -n --argjson dev "$DEV_ENTRY" \
               '[$dev]')
           fi
-        fi
           
           SWITCHER_FILE="${version}/_static/switcher.json"
           echo "$UPDATED_SWITCHER_CONTENT" > "$SWITCHER_FILE"
