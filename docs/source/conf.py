@@ -29,7 +29,7 @@ try:
         text=True,
         check=True
     )
-    release = result.stdout.strip()
+    release = result.stdout.strip().lstrip('v')
 except (subprocess.CalledProcessError, FileNotFoundError):
     release = "0.0.0"
 
@@ -125,10 +125,10 @@ html_theme_options = {
    ],
    "switcher": {
         "json_url": "https://animeshsasan.github.io/sphinx-deployment-test/latest/_static/switcher.json",
-        "version_match": release,
+        "version_match": f"v{release}",
     },
    "logo": {
-        "text": f"Sphinx-deployment-test {release}",
+        "text": f"Sphinx-deployment-test v{release}",
         "image_light": "logo_light.png",
         "image_dark": "logo_dark.png",
     },
