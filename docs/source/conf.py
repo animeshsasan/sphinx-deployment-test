@@ -29,7 +29,7 @@ try:
         text=True,
         check=True
     )
-    release = result.stdout.strip().lstrip('v')
+    release = result.stdout.strip()
 except (subprocess.CalledProcessError, FileNotFoundError):
     release = "0.0.0"
 
@@ -128,7 +128,7 @@ html_theme_options = {
         "version_match": release,
     },
    "logo": {
-        "text": f"Sphinx-deployment-test v{release}",
+        "text": f"Sphinx-deployment-test {release}",
         "image_light": "logo_light.png",
         "image_dark": "logo_dark.png",
     },
