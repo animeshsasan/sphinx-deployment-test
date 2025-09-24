@@ -13,7 +13,7 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import setuptools_scm
+import subprocess
 
 # -- Project information -----------------------------------------------------
 
@@ -23,11 +23,14 @@ author = 'Neuroinformatics Unit'
 
 # The full version, including alpha/beta/rc tags
 try:
-    release = setuptools_scm.get_version(root="../..", relative_to=__file__)
-    release = release.split("+")[0]  # remove git hash but retain .dev tag if present
-except LookupError:
-    # if git is not initialised, still allow local build
-    # with a dummy version
+    result = subprocess.run(
+        ['git', 'describe', '--tags', '--abbrev=0'],
+        capture_output=True,
+        text=True,
+        check=True
+    )
+    release = result.stdout.strip().lstrip('v')
+except (subprocess.CalledProcessError, FileNotFoundError):
     release = "0.0.0"
 
 
