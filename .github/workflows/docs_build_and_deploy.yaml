@@ -40,10 +40,9 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     steps:
-    - uses: animeshsasan/actions/deploy_sphinx_docs_multiversion@ISSUE-91-doc-versioning
+    - uses: animeshsasan/actions/deploy_sphinx_docs_multiversion@main
       with:
         secret_input: ${{ secrets.GITHUB_TOKEN }}
         use-make: true
         switcher-url: https://animeshsasan.github.io/sphinx-deployment-test/latest/_static/switcher.json
-        base-url: https://animeshsasan.github.io/sphinx-deployment-test/
 
