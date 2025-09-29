@@ -40,7 +40,7 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     steps:
-    - uses: animeshsasan/actions/deploy_sphinx_docs_multiversion@main
+    - uses: animeshsasan/actions/deploy_sphinx_docs_multiversion@doc-versioning-bug-fix
       with:
         secret_input: ${{ secrets.GITHUB_TOKEN }}
         use-make: true
