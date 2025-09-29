@@ -1,0 +1,36 @@
+[
+  {
+    "name": "Development",
+    "version": "dev",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/dev"
+  },
+  {
+    "name": "v0.1.18 (latest)",
+    "version": "v0.1.18",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/latest"
+  },
+  {
+    "version": "v0.1.17",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/v0.1.17"
+  },
+  {
+    "version": "v0.1.16",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/v0.1.16"
+  },
+  {
+    "version": "v0.1.15",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/v0.1.15"
+  },
+  {
+    "version": "v0.1.14",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/v0.1.14"
+  },
+  {
+    "version": "v0.1.11",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/v0.1.11"
+  },
+  {
+    "version": "v0.1.10",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/v0.1.10"
+  }
+]
