@@ -5,9 +5,13 @@
     "url": "https://animeshsasan.github.io/sphinx-deployment-test/dev"
   },
   {
-    "name": "v0.1.16 (latest)",
-    "version": "v0.1.16",
+    "name": "v0.1.17 (latest)",
+    "version": "v0.1.17",
     "url": "https://animeshsasan.github.io/sphinx-deployment-test/latest"
+  },
+  {
+    "version": "v0.1.16",
+    "url": "https://animeshsasan.github.io/sphinx-deployment-test/v0.1.16"
   },
   {
     "version": "v0.1.15",
